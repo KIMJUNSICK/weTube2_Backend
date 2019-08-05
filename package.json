@@ -1,0 +1,17 @@
+{
+  "name": "wetube2_backend",
+  "version": "1.0.0",
+  "description": "Clone YouTube Backend with ExpressJS ",
+  "repository": "https://github.com/KIMJUNSICK/weTube2_Backend.git",
+  "author": "Kim Jun Sik <jinaganda5@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon --exec babel-node src/server.js"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5"
+  }
+}
