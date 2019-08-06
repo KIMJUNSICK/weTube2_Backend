@@ -9,12 +9,18 @@ const handleListening = () =>
   console.log(`Listening on: ✅  http://localhost:${PORT}`);
 
 const handleHome = (req, res) => {
-  console.log(req);
   res.send("Home");
 };
 const handleProfile = (req, res) => res.send("Profile");
 
+const betweenHome = (req, res, next) => {
+  console.log("Vtween");
+  next();
+};
+
 app.get("/", handleHome);
+
+app.use(betweenHome);
 
 app.get("/profile", handleProfile);
 
