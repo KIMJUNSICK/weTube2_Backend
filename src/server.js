@@ -1,5 +1,9 @@
 require("dotenv").config();
 import express from "express";
+import logger from "morgan";
+import Helmet from "helmet";
+import cookieParser from "cookie-parser";
+import bodyParser from "body-parser";
 
 const PORT = process.env.PORT || 4000;
 
@@ -13,14 +17,13 @@ const handleHome = (req, res) => {
 };
 const handleProfile = (req, res) => res.send("Profile");
 
-const betweenHome = (req, res, next) => {
-  console.log("Vtween");
-  next();
-};
+app.use(cookieParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(Helmet());
+app.use(logger("dev"));
 
 app.get("/", handleHome);
-
-app.use(betweenHome);
 
 app.get("/profile", handleProfile);
 
