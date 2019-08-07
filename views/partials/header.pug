@@ -1,6 +1,9 @@
 header.header
     .haeder__column
         i.fab.fa-youtube
+    .header__column
+        form(action=routes.search, method="get")
+            input(type="text", placeholder="Search by term...", name="term")
     .haeder__column
         ul    
             li
