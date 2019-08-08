@@ -1,6 +1,6 @@
 import routes from "../routes";
 
-export const join = (req, res) => res.render("join", { pageTitle: "Join" });
+export const getJoin = (req, res) => res.render("join", { pageTitle: "Join" });
 export const postJoin = (req, res) => {
   const {
     body: { name, email, password, password2 }
@@ -9,12 +9,18 @@ export const postJoin = (req, res) => {
     res.status(400);
     res.render("join", { pageTitle: "Join" });
   } else {
-    res.redirect(routes.home);
-    console.log(req);
+    //To do: Register User
+    //To do: Log user in
+    res.redirect(routes.logIn);
   }
 };
 
-export const logIn = (req, res) => res.render("logIn", { pageTitle: "Log In" });
+export const getLogIn = (req, res) =>
+  res.render("logIn", { pageTitle: "Log In" });
+export const postLogIn = (req, res) => {
+  res.redirect(routes.home);
+};
+
 export const logOut = (req, res) => res.render("logOut");
 export const userDetail = (req, res) => res.render("userDetail");
 export const editProfile = (req, res) => res.render("editProfile");
