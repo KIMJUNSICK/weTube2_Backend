@@ -1,6 +1,8 @@
-require("dotenv").config();
+import dotenv from "dotenv";
+dotenv.config();
 import app from "./app";
 import "../db";
+import "../models/Video";
 
 const PORT = process.env.PORT || 4000;
 

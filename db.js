@@ -1,7 +1,7 @@
 require("dotenv").config();
 import mongoose from "mongoose";
 
-mongoose.connect(process.env.MONGODB, {
+mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useFindAndModify: false
 });
