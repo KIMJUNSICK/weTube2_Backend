@@ -21,5 +21,11 @@
   },
   "scripts": {
     "dev": "nodemon --exec babel-node src/init.js"
+  },
+  "devDependencies": {
+    "eslint": "^6.2.2",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-plugin-import": "^2.18.2"
   }
 }
