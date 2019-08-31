@@ -12,7 +12,7 @@ import { home, search } from "../controllers/videoControllers";
 const globalRouter = express.Router();
 
 globalRouter.get(routes.join, getJoin);
-globalRouter.post(routes.join, postJoin);
+globalRouter.post(routes.join, postJoin, postLogIn);
 
 globalRouter.get(routes.logIn, getLogIn);
 globalRouter.post(routes.logIn, postLogIn);

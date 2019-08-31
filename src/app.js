@@ -3,12 +3,17 @@ import logger from "morgan";
 import Helmet from "helmet";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
+import passport from "passport";
+import session from "express-session";
 
 import userRouter from "../routers/userRouter";
 import globalRouter from "../routers/globalRouter";
 import videoRouter from "../routers/videoRouter";
 import routes from "../routes";
 import { localMiddleware } from "../middlewares";
+import "../passport";
+
+require("dotenv").config();
 
 const app = express();
 
@@ -20,6 +25,15 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(logger("dev"));
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: true,
+    saveUninitialized: false
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(localMiddleware);
 
 app.use(routes.home, globalRouter);
